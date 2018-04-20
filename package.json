@@ -1,0 +1,27 @@
+{
+  "name": "book-city-l",
+  "version": "1.0.0",
+  "description": "book-city-L",
+  "main": "gulpfile.js",
+  "scripts": {
+    "dev": "gulp dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaodanli/book-city-L.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiaodanli/book-city-L/issues"
+  },
+  "homepage": "https://github.com/xiaodanli/book-city-L#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-clean-css": "^3.9.3",
+    "gulp-sass": "^4.0.1",
+    "gulp-sequence": "^1.0.0",
+    "gulp-webserver": "^0.9.1"
+  }
+}

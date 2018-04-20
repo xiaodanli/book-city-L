@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/libs/flexible.js"></script>
+    <title>搜索</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/search.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <header class="header">
+            <a href="javascript:;" class="icon-back"></a>
+            <!-- <div class="search-ipt">
+                <span class="header-icon-search"></span>
+                <input type="text" placeholder="请输入书名/作者/关键字">
+                <div class="search-input-btn">搜索</div>
+            </div> -->
+            <div class="header-title">返回</div>
+            <a href="#" class="icon-home"></a>
+        </header>
+        <div class="centent"></div>
+    </div>
+    <script src="../js/libs/require.js"></script>
+    <script>
+        require(['../js/config.js'], function() {
+            require(['search'])
+        })
+    </script>
+</body>
+
+</html>

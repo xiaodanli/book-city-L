@@ -1,0 +1,202 @@
+@import "_config.scss";
+@import "_mixin.scss";
+@import "tpl/header.scss";
+.index-content {
+    .inner-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: $write-color;
+        &:nth-child(1) {
+            z-index: 1;
+        }
+    }
+}
+
+.search-wrap {
+    display: flex;
+    margin: pxTorem(15px);
+    .search-div {
+        flex: 1;
+        border: 1px solid $border-color;
+        line-height: pxTorem(36px);
+        @include bg("../imgs/icon-search.png", pxTorem(10px));
+        background-size: pxTorem(14px);
+        padding-left: pxTorem(34px);
+    }
+    .switch-shelf {
+        width: pxTorem(36px);
+        height: pxTorem(36px);
+        border: 1px solid $border-color;
+        border-radius: 4px;
+        @include bg("../imgs/icon-swicth-list.png");
+        background-size: pxTorem(14px);
+        margin-left: pxTorem(15px);
+        &.switch-shelf-list {
+            @include bg("../imgs/icon-switch.png");
+            background-size: pxTorem(14px);
+        }
+    }
+}
+
+.banner-swiper {
+    width: 100%;
+    a {
+        display: block;
+        width: 100%;
+        img {
+            width: 100%;
+        }
+    }
+    .swiper-pagination-bullet {
+        width: pxTorem(14px);
+        height: pxTorem(2px);
+        &.swiper-pagination-bullet-active {
+            background-color: $buttle-active-bg;
+        }
+    }
+}
+
+.index-top-btns {
+    display: flex;
+    li {
+        flex: 1;
+        text-align: center;
+        margin: pxTorem(10px) 0;
+        a {
+            display: block;
+            width: 100%;
+            img {
+                width: pxTorem(40px);
+                height: pxTorem(40px);
+            }
+            span {
+                font-size: pxTorem(14px);
+                color: $black-color;
+                line-height: 2;
+                display: block;
+            }
+        }
+    }
+}
+
+.book-t-b-list {
+    display: flex;
+    flex-flow: wrap;
+    padding-bottom: pxTorem(10px);
+    li {
+        width: 33.3%;
+        a {
+            display: block;
+            width: pxTorem(86px);
+            margin: pxTorem(10px) auto 0 auto;
+            .book-cover {
+                width: 100%;
+                height: pxTorem(120px);
+                overflow: hidden;
+                box-shadow: 0 pxTorem(6px) pxTorem(5px) pxTorem(-3px) $book-shadow-color;
+                img {
+                    @include wh;
+                }
+            }
+            .title {
+                width: 100%;
+                font-size: pxTorem(12px);
+                color: $gray-color;
+                line-height: 2;
+                @include one-line;
+            }
+        }
+    }
+}
+
+.book-l-r-list {
+    width: 100%;
+    &>li {
+        width: 100%;
+        padding: pxTorem(15px);
+        box-sizing: border-box;
+        border-bottom: 1px solid $border-color;
+    }
+    a {
+        display: block;
+        width: 100%;
+        display: flex;
+        .book-cover {
+            width: pxTorem(86px);
+            height: pxTorem(114px);
+            position: relative;
+            box-shadow: 0 pxTorem(6px) pxTorem(5px) pxTorem(-3px) $book-shadow-color;
+            img {
+                @include wh;
+            }
+            .order {
+                position: absolute;
+                top: 0;
+                left: pxTorem(10px);
+                background-color: $buttle-active-bg;
+                padding: pxTorem(2px) pxTorem(6px);
+                color: $write-color;
+            }
+            .book-status {
+                width: 100%;
+                color: $write-color;
+                line-height: 2;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                padding-left: pxTorem(10px);
+                box-sizing: border-box;
+                background: -webkit-linear-gradient(top, transparent, #000);
+            }
+        }
+        .book-info {
+            flex: 1;
+            margin-left: pxTorem(15px);
+            span {
+                display: block;
+            }
+            .title {
+                font-size: pxTorem(14px);
+                color: $black-color;
+            }
+            .author {
+                font-size: pxTorem(12px);
+                color: $gray-color;
+                margin-top: pxTorem(10px);
+            }
+            .intro {
+                @include line(2);
+                font-size: pxTorem(12px);
+                color: $gray-color;
+                line-height: 1.5;
+                margin-top: pxTorem(10px);
+            }
+            .tags-list {
+                li {
+                    padding: pxTorem(2px) pxTorem(6px);
+                    border: 1px solid $free-green-color;
+                    border-radius: 4px;
+                    color: $free-green-color;
+                    display: inline-block;
+                    margin: pxTorem(6px) pxTorem(6px) 0 0;
+                }
+            }
+        }
+    }
+}
+
+.book-order-list {
+    width: 100%;
+    li {
+        width: 100%;
+        padding: pxTorem(15px);
+        border-bottom: 1px solid $border-color;
+        a {
+            display: block;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
