@@ -1,0 +1,25 @@
+<script type="text/x-handlebars-template" id="l-r-tpl">
+    {{#each this}}
+    <li>
+        <a href="#">
+            <div class="book-cover">
+                <img src="{{cover}}"> {{#if isNum}}
+                <i class="order">{{addInd @index}}</i> {{/if}}
+                <span class="book-status">{{status finish}}</span>
+            </div>
+            <div class="book-info">
+                <h2 class="title">{{title}}</h2>
+                <span class="author">{{authors}}</span>
+                <span class="intro">{{summary}}</span>
+                <ol class="tags-list">
+                    {{#each categories}}
+                    <li>{{label}}</li>
+                    {{/each}}
+                </ol>
+            </div>
+        </a>
+    </li>
+
+    {{/each}}
+
+</script>

@@ -28,33 +28,28 @@
                 <!-- index-top start -->
                 <section class="block">
                     <div class="search-wrap">
-                        <div class="search-div">
+                        <a class="search-div" href="page/search.html">
                             请输入书名/关键字/作者
-                        </div>
+                        </a>
                     </div>
                     <div class="swiper-container banner-swiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <img src="imgs/classify-bg.jpg">
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <img src="imgs/classify-bg.jpg">
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <img src="imgs/classify-bg.jpg">
-                                </a>
-                            </div>
+                            <img src="imgs/default-banner.jpg">
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
+                    <script type="text/x-handlebars-template" id="swiperTpl">
+                        {{#each this}}
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="{{ad_pic_url}}">
+                            </a>
+                        </div>
+                        {{/each}}
+                    </script>
                     <ul class="index-top-btns">
                         <li>
-                            <a href="#">
+                            <a href="page/detail.html">
                                 <img src="imgs/icon-female.png">
                                 <span>女生</span>
                             </a>
@@ -85,55 +80,7 @@
                     <div class="block-title-line">
                         <h2>本周最火</h2>
                     </div>
-                    <ul class="book-t-b-list">
-                        <li>
-                            <a href="#">
-                                <div class="book-cover">
-                                    <img src="imgs/book1.jpg">
-                                </div>
-                                <div class="title">书名</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="book-cover">
-                                    <img src="imgs/book1.jpg">
-                                </div>
-                                <div class="title">书书名名</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="book-cover">
-                                    <img src="imgs/book1.jpg">
-                                </div>
-                                <div class="title">书名书名</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="book-cover">
-                                    <img src="imgs/book1.jpg">
-                                </div>
-                                <div class="title">书名书名</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="book-cover">
-                                    <img src="imgs/book1.jpg">
-                                </div>
-                                <div class="title">书名书名</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="book-cover">
-                                    <img src="imgs/book1.jpg">
-                                </div>
-                                <div class="title">书名书名</div>
-                            </a>
-                        </li>
+                    <ul class="book-t-b-list" id="hot">
                     </ul>
                 </section>
                 <!-- 本周最火 end -->
@@ -142,37 +89,21 @@
                     <div class="block-title-line">
                         <h2>重磅推荐<i>推</i></h2>
                     </div>
-                    <ul class="book-l-r-list">
-                        <li>
-                            <a href="#">
-                                <div class="book-cover">
-                                    <img src="imgs/book1.jpg">
-                                    <i class="order">1</i>
-                                    <span class="book-status">已完结</span>
-                                </div>
-                                <div class="book-info">
-                                    <h2 class="title">书名</h2>
-                                    <span class="author">作者</span>
-                                    <span class="intro">身怀绝技的方少阳，带着对大都市的美好憧憬，本想投靠师娘，却当上了医院妇科的男医生，泡了个美女医生，</span>
-                                    <ol class="tags-list">
-                                        <li>奇幻</li>
-                                        <li>奇幻</li>
-                                        <li>奇幻</li>
-                                        <li>奇幻</li>
-                                    </ol>
-                                </div>
-                            </a>
-                        </li>
+                    <ul class="book-l-r-list" id="first-recommend"></ul>
+                    <ul class="book-order-list" id="not-first-list">
+
                     </ul>
-                    <ul class="book-order-list">
+                    <script id="recomment-tpl" type="text/x-handlebars-template">
+                        {{#each this}} {{#equal @index 0}} {{else}} {{#limit @index 5}}
                         <li class="book-item">
                             <a href="#">
-                                <span>2</span>
-                                <h3>鬼吹灯</h3>
-                                <span class="author">作者</span>
+                                <span>{{addInd @index}}</span>
+                                <h3>{{title}}</h3>
+                                <span class="author">{{authors}}</span>
                             </a>
                         </li>
-                    </ul>
+                        {{/limit}} {{/equal}} {{/each}}
+                    </script>
                 </section>
                 <!-- 重磅推荐 end -->
             </section>
@@ -183,6 +114,21 @@
                     </div>
                     <div class="switch-shelf switch-shelf-list"></div>
                 </div>
+                <!-- list-type -->
+                <ul class="shelf-list list-type">
+                    <li>
+                        <a href="#">
+                            <div class="book-cover">
+                                <img src="./imgs/default-img.jpg">
+                            </div>
+                            <div class="book-info">
+                                <p class="title">{{title}}</p>
+                                <p class="author">{{authors}}</p>
+                                <p class="newest">{{latest}}</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
             </section>
         </section>
     </div>

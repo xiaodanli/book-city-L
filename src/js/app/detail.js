@@ -1,4 +1,4 @@
 require(['jquery', 'renderHeader'], function($, renderHeader) {
     // alert("search")
-    renderHeader({ isSearch: true })
+    renderHeader({ title: "详情" })
 })

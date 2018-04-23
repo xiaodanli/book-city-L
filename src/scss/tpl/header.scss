@@ -1,5 +1,12 @@
 @import "../_config.scss";
 @import "../_mixin.scss";
+.render-header {
+    width: 100%;
+    height: pxTorem(44px);
+    line-height: pxTorem(44px);
+    background-color: $header-bg;
+}
+
 .header {
     width: 100%;
     height: pxTorem(44px);

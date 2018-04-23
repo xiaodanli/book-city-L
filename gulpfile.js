@@ -10,6 +10,10 @@ var server = require("gulp-webserver");
 
 var sequence = require("gulp-sequence");
 
+var homeJson = require("./src/data/home.json");
+
+console.log(homeJson)
+
 gulp.task("minCss", function() {
     gulp.src("src/scss/*.scss")
         .pipe(scss())
@@ -28,6 +32,9 @@ gulp.task("server", ['minCss', 'copyCss'], function() {
             livereload: true,
             // open: true,
             middleware: function(req, res, next) {
+                if (req.url === '/index') {
+                    res.end(JSON.stringify(homeJson))
+                }
                 next()
             }
         }))

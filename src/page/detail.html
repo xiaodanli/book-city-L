@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <script src="../js/libs/flexible.js"></script>
-    <title>搜索</title>
+    <title>详情</title>
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/search.css">
 </head>
@@ -12,20 +12,12 @@
 <body>
     <div class="wrap">
         <div class="render-header"></div>
-        <div class="centent">
-            <div class="inner-content">
-                <ul class="type-tags">
-                    <li class="tag">诛仙</li>
-                    <li class="tag">择天记</li>
-                </ul>
-                <ul class="shelf-list search-list none"></ul>
-            </div>
-        </div>
+        <div class="centent"></div>
     </div>
     <script src="../js/libs/require.js"></script>
     <script>
         require(['../js/config.js'], function() {
-            require(['search'])
+            require(['detail'])
         })
     </script>
 </body>
