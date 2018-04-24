@@ -76,7 +76,9 @@
     }
     .search-ipt {
         height: pxTorem(34px);
-        margin: pxTorem(4px) pxTorem(20px) 0 pxTorem(44px);
+        margin: 0 pxTorem(20px) 0 pxTorem(44px);
+        position: relative;
+        top: pxTorem(4px);
         background-color: $write-color;
         display: flex;
         .header-icon-search {

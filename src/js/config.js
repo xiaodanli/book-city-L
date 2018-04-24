@@ -17,6 +17,7 @@ require.config({
 
         'tbTpl': '../page/tpl/book-t-b-list.html',
         'lrTpl': '../page/tpl/book-l-r-list.html',
-        'headerTpl': '../page/tpl/header.html'
+        'headerTpl': '../page/tpl/header.html',
+        'searchTpl': '../page/tpl/book-l-r-s-list.html'
     }
 })
