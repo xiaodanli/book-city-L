@@ -1,5 +1,5 @@
-require(['jquery', 'swiper', 'render', 'text!tbTpl', 'text!lrTpl'], function($, Swiper, render, tbTpl, lrTpl) {
-    console.log(tbTpl);
+require(['jquery', 'swiper', 'render', 'text!tbTpl', 'text!lrTpl', 'lazyload'], function($, Swiper, render, tbTpl, lrTpl, lazyload) {
+    var isLazy = false
     $(".switch-tab").on("click", 'span', function() {
         $(this).addClass("active").siblings().removeClass("active");
         var ind = $(this).index();
@@ -66,6 +66,14 @@ require(['jquery', 'swiper', 'render', 'text!tbTpl', 'text!lrTpl'], function($, 
         var mySwiper = new Swiper('.swiper-container', {
             loop: true,
             pagination: '.swiper-pagination'
+        })
+
+
+        $("#lazy-city img[data-original]").lazyload({
+            container: $("#lazy-city"),
+            effect:   "fadeIn",
+            threshold: 180,
+            skip_invisible: false
         })
 
     }

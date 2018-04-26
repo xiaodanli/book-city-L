@@ -1,6 +1,7 @@
 @import "_config.scss";
 @import "_mixin.scss";
 @import "tpl/header.scss";
+@import "tpl/book-t-b-list.scss";
 .index-content {
     .inner-content {
         position: absolute;
@@ -76,36 +77,6 @@
                 color: $black-color;
                 line-height: 2;
                 display: block;
-            }
-        }
-    }
-}
-
-.book-t-b-list {
-    display: flex;
-    flex-flow: wrap;
-    padding-bottom: pxTorem(10px);
-    li {
-        width: 33.3%;
-        a {
-            display: block;
-            width: pxTorem(86px);
-            margin: pxTorem(10px) auto 0 auto;
-            .book-cover {
-                width: 100%;
-                height: pxTorem(120px);
-                overflow: hidden;
-                box-shadow: 0 pxTorem(6px) pxTorem(5px) pxTorem(-3px) $book-shadow-color;
-                img {
-                    @include wh;
-                }
-            }
-            .title {
-                width: 100%;
-                font-size: pxTorem(12px);
-                color: $gray-color;
-                line-height: 2;
-                @include one-line;
             }
         }
     }

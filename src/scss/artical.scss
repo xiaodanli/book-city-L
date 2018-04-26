@@ -1,0 +1,199 @@
+@import "_config.scss";
+@import "_mixin.scss";
+.artical-con {
+    width: 100%;
+    height: 100%;
+    @include scroll;
+    background-color: $article-bg1;
+    padding: pxTorem(15px);
+    @include sizing;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    h2 {
+        font-size: pxTorem(20px);
+        font-weight: bold;
+        color: $title-color;
+        border-bottom: 1px solid $title-color;
+        line-height: pxTorem(44px);
+        margin-bottom: pxTorem(10px);
+    }
+    p {
+        font-size: pxTorem(14px);
+        color: $artical-color;
+        line-height: pxTorem(40px);
+        text-indent: 2em;
+    }
+}
+
+.mask {
+    @include wh;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.set-t {
+    width: 100%;
+    height: pxTorem(44px);
+    background-color: rgba(0, 0, 0, .9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    color: $write-color;
+    line-height: pxTorem(44px);
+    span {
+        @include bg("../imgs/icon-circle-back.png", pxTorem(15px));
+        font-size: pxTorem(14px);
+        background-size: pxTorem(18px);
+        padding-left: pxTorem(44px);
+    }
+}
+
+.set-b {
+    width: 100%;
+    padding: pxTorem(20px) pxTorem(15px);
+    @include sizing;
+    background-color: rgba(0, 0, 0, .9);
+    color: #fff;
+    font-size: pxTorem(14px);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    .chapter-btns {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: pxTorem(15px);
+        span {
+            flex: 1;
+            text-align: center;
+            &.disabled {
+                color: $gray-color;
+            }
+        }
+    }
+    .style-btns {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        dl {
+            flex: 1;
+            text-align: center;
+            dt {
+                width: pxTorem(44px);
+                height: pxTorem(30px);
+                margin: 0 auto;
+            }
+            &.chapter {
+                dt {
+                    @include bg("../imgs/icon-chapter.png");
+                    background-size: pxTorem(20px);
+                }
+            }
+            &.size {
+                dt {
+                    @include bg("../imgs/icon-font.png");
+                    background-size: pxTorem(20px);
+                }
+            }
+            &.active {
+                &.size {
+                    dt {
+                        @include bg("../imgs/icon-font-active.png");
+                        background-size: pxTorem(20px);
+                    }
+                }
+            }
+            &.day {
+                dt {
+                    @include bg("../imgs/icon-light.png");
+                    background-size: pxTorem(20px);
+                }
+            }
+            &.change {
+                dt {
+                    @include bg("../imgs/icon-night.png");
+                    background-size: pxTorem(20px);
+                }
+            }
+        }
+    }
+}
+
+.style-panel {
+    width: 100%;
+    padding: pxTorem(15px);
+    @include sizing;
+    position: absolute;
+    bottom: pxTorem(70px);
+    left: 0;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, .9);
+    .set-bg {
+        margin-top: pxTorem(20px);
+    }
+    div {
+        display: flex;
+        align-items: center;
+        color: #fff;
+        span {
+            margin: 0 pxTorem(15px);
+        }
+        button {
+            background-color: transparent;
+            border: 1px solid $write-color;
+            border-radius: pxTorem(16px);
+            padding: pxTorem(4px) pxTorem(40px);
+            color: $write-color;
+            font-size: pxTorem(16px);
+            outline: none;
+            &.large-btn {
+                margin-right: pxTorem(10px);
+            }
+        }
+        .bg-list {
+            li {
+                width: pxTorem(30px);
+                height: pxTorem(30px);
+                border-radius: 50%;
+                margin-right: pxTorem(10px);
+                display: inline-block;
+                position: relative;
+                &:nth-child(1) {
+                    background-color: $article-bg1;
+                }
+                &:nth-child(2) {
+                    background-color: $article-bg2;
+                }
+                &:nth-child(3) {
+                    background-color: $article-bg3;
+                }
+                &:nth-child(4) {
+                    background-color: $article-bg4;
+                }
+                &:nth-child(5) {
+                    background-color: $article-bg5;
+                }
+                &:nth-child(6) {
+                    background-color: $article-bg6;
+                }
+                &.active:before {
+                    content: '';
+                    width: pxTorem(34px);
+                    height: pxTorem(34px);
+                    border: 1px solid $btn-orange-border;
+                    border-radius: 50%;
+                    position: absolute;
+                    left: pxTorem(-2px);
+                    top: pxTorem(-2px);
+                }
+            }
+        }
+    }
+}

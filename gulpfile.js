@@ -8,7 +8,7 @@ var minCss = require("gulp-clean-css");
 
 var server = require("gulp-webserver");
 
-var sequence = require("gulp-sequence");
+var sequcence = require("gulp-sequence");
 
 var queryString = require("querystring");
 
@@ -18,22 +18,43 @@ var homeJson = require("./src/data/home.json");
 
 var searchJson = require("./src/data/search.json");
 
-// var detail352876 = require("./src/data/352876.json");
+var chapterJson = require("./src/data/chapter-list.json");
 
-console.log(homeJson)
+var uglify = require("gulp-uglify");
 
 gulp.task("minCss", function() {
-    gulp.src("src/scss/*.scss")
+    return gulp.src("src/scss/*.scss")
         .pipe(scss())
         .pipe(autoprefixer({
             browsers: ['last 2 versions', 'Android >= 4']
         }))
         .pipe(minCss())
-        .pipe(gulp.dest("src/css"))
+        .pipe(gulp.dest("dist/css"))
+})
+
+gulp.task("uglify", function() {
+    return gulp.src(['src/js/**/*.js', '!src/js/libs/*.js'])
+        .pipe(uglify())
+        .pipe(gulp.dest("dist/js"))
+})
+
+gulp.task("copyJs", function() {
+    return gulp.src("src/js/libs/*.js")
+        .pipe(gulp.dest("dist/js/libs"))
+})
+
+gulp.task("copyImg", function() {
+    return gulp.src("src/imgs/*.{jpg,png}")
+        .pipe(gulp.dest("dist/imgs"))
+})
+
+gulp.task("copyHtml", function() {
+    return gulp.src("src/**/*.html")
+        .pipe(gulp.dest("dist"))
 })
 
 gulp.task("server", ['minCss', 'copyCss'], function() {
-    gulp.src("src")
+    gulp.src("dist")
         .pipe(server({
             port: '1234',
             host: '169.254.5.149',
@@ -53,10 +74,21 @@ gulp.task("server", ['minCss', 'copyCss'], function() {
                             arr.push(list[i])
                         }
                     }
-
                     res.end(JSON.stringify(arr))
+                } else if (/\/api\/detail/g.test(req.url)) {
+                    var fiction_id = url.parse(req.url, true).query.fiction_id;
 
+                    var detail = require("./src/data/" + fiction_id + ".json");
 
+                    res.end(JSON.stringify(detail))
+                } else if (/\/api\/chapter/g.test(req.url)) {
+                    var fiction_id = url.parse(req.url, true).query.fiction_id;
+                    res.end(JSON.stringify(chapterJson));
+                } else if (/\/api\/articalUrl/g.test(req.url)) {
+                    var fiction_id = url.parse(req.url, true).query.fiction_id;
+                    var chapter_id = url.parse(req.url, true).query.chapter_id;
+                    var data = require("./src/data/reader/data" + chapter_id + ".json");
+                    res.end(JSON.stringify(data));
                 }
                 next()
             }
@@ -64,12 +96,15 @@ gulp.task("server", ['minCss', 'copyCss'], function() {
 })
 
 gulp.task("copyCss", function() {
-    gulp.src("src/scss/*.css")
-        .pipe(gulp.dest("src/css"))
+    return gulp.src("src/scss/*.css")
+        .pipe(gulp.dest("dist/css"))
 })
 
 gulp.task("watch", function() {
     gulp.watch("src/**/*.scss", ['minCss']);
 })
 
-gulp.task("default", ['minCss', 'copyCss', 'server', 'watch'])
+gulp.task("default", function(cb) {
+    sequcence(['minCss', 'copyCss', 'uglify', 'copyJs', 'copyHtml', 'copyImg'], 'server', cb)
+
+})

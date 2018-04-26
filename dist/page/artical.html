@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/libs/flexible.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>阅读</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/artical.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <section class="artical-con"></section>
+        <script type="text/x-handlebars-template" id="artical-tpl">
+            <h2>{{t}}</h2>
+            {{#each p}}
+            <p>{{this}}</p>
+            {{/each}}
+        </script>
+        <div class="mask none"></div>
+        <!-- 顶部 -->
+        <div class="set-t none">
+            <span class="icon-circle-back">返回</span>
+        </div>
+        <!-- 尾部 -->
+        <div class="set-b none">
+            <div class="chapter-btns">
+                <span id="pre-btn">上一章</span>
+                <span id="charpter-num"></span>
+                <span id="next-btn">下一章</span>
+            </div>
+            <div class="style-btns">
+                <dl class="chapter">
+                    <dt></dt>
+                    <dd>目录</dd>
+                </dl>
+                <dl class="size">
+                    <dt></dt>
+                    <dd>字体</dd>
+                </dl>
+                <dl class="day">
+                    <dt></dt>
+                    <dd>白天</dd>
+                </dl>
+            </div>
+        </div>
+        <section class="style-panel none">
+            <div class="set-size">
+                <span>字号</span>
+                <button class="large-btn">大</button>
+                <button class="small-btn">小</button>
+            </div>
+            <div class="set-bg">
+                <span>背景</span>
+                <ul class="bg-list">
+                    <li class="active" bg-color="#f7eee5"></li>
+                    <li bg-color="#e9dfc7"></li>
+                    <li bg-color="#a4a4a4"></li>
+                    <li bg-color="#cdefce"></li>
+                    <li bg-color="#283548"></li>
+                    <li bg-color="#0f1410"></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <script src="../js/libs/require.js"></script>
+    <script>
+        require(['../js/config.js'], function() {
+            require(['artical']);
+        })
+    </script>
+</body>
+
+</html>

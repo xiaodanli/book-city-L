@@ -1,0 +1,16 @@
+<script type="text/x-handlebars-template" id="header-tpl">
+    <header class="header">
+        <a href="javascript:;" class="icon-back"></a>
+        {{#if isSearch}}
+        <div class="search-ipt">
+            <span class="header-icon-search"></span>
+            <input type="text" placeholder="请输入书名/作者/关键字" id="ipt">
+            <div class="search-input-btn">搜索</div>
+        </div>
+        {{else}}
+        <div class="header-title">{{title}}</div>
+
+        <a href="../index.html" class="icon-home"></a>
+        {{/if}}
+    </header>
+</script>

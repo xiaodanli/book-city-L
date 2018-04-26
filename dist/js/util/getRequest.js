@@ -1,0 +1,1 @@
+define(function(){return function(){var n=location.search,r={};if(-1!=n.indexOf("?"))for(var t=n.substr(1).split("&"),i=0,e=t.length;i<e;i++){var f=t[i].split("=");r[f[0]]=f[1]}return r}});

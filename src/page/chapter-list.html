@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/libs/flexible.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>书城</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/chapter-list.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="render-header"></div>
+        <div class="chapter-wrap">
+            <ul class="chapter-list"></ul>
+        </div>
+        <script id="chapter-template" type="text/x-handlebars-template">
+            {{#each toc}}
+            <li chapter-id="{{@index}}">
+                <a href="artical.html?fiction_id={{../fiction_id}}&chapter_id={{chapter_id}}">{{title}}</a>
+            </li>
+            {{/each}}
+        </script>
+    </div>
+</body>
+<script src="../js/libs/require.js"></script>
+<script>
+    require(['../js/config.js'], function() {
+        require(['chapterList'])
+    })
+</script>
+
+</html>

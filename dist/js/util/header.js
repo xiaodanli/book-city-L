@@ -1,0 +1,1 @@
+define(["jquery","render","text!headerTpl"],function(r,n,t){return function(e){r(".render-header").html(t),n("#header-tpl",e,".render-header"),r(".icon-back").on("click",function(){history.go(-1)})}});
